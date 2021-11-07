@@ -111,6 +111,30 @@
   object-fit: cover;
 }
 
+.gif-info-container {
+  margin-top: 15px;
+}
+
+.gif-info-container p {
+  color: white;
+}
+
+.gif-upvote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gif-upvote .cta-button {
+  height: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.gif-upvote p {
+  font-weight: bold;
+}
+
 .connected-container input[type='text'] {
   display: inline-block;
   color: white;

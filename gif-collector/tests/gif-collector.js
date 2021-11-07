@@ -1,4 +1,5 @@
 const anchor = require('@project-serum/anchor');
+const BN = require('bn.js');
 const { SystemProgram } = anchor.web3;
 
 describe('gif-collector', () => {
@@ -31,13 +32,25 @@ describe('gif-collector', () => {
     await program.rpc.addGif("https://media.giphy.com/media/8Ry7iAVwKBQpG/giphy.gif", {
       accounts: {
         baseAccount: baseAccount.publicKey,
+        user: provider.wallet.publicKey,
       },
     });
 
     // Get the account again to see what changed.
     account = await program.account.baseAccount.fetch(baseAccount.publicKey);
     console.log('👀 GIF Count', account.totalGifs.toString())
-
     console.log('👀 GIF List', account.gifList)
+
+    // Upvote gif
+    account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+    console.log('⭐️ GIF Votes', account.gifList[0].totalVotes)
+    await program.rpc.upvote(new BN(0), {
+      accounts: {
+        baseAccount: baseAccount.publicKey,
+      },
+    })
+
+    account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+    console.log('⭐️ GIF Votes', account.gifList[0].totalVotes)
   });
 });

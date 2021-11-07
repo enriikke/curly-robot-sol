@@ -1,11 +1,11 @@
-[programs.localnet]
-gif_collector = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+[programs.devnet]
+gif_collector = "GkjFCqkgzii2jNYfvCyYRt2m5WvVcaWKS2iDGGePizW5"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/home/codespace/.config/solana/id.json"
 
 [scripts]
