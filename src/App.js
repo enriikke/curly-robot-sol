@@ -236,6 +236,7 @@ const App = () => {
       console.log('Fetching GIF list...');
       getGifList()
     }
+  // eslint-disable-next-line
   }, [walletAddress]);
 
   return (
